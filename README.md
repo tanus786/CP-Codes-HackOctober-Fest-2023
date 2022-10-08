@@ -11,7 +11,7 @@
 - And make a pull request
 
 ## I'll make sure to merge it in my repository❤
-<p>⚙️ Visit The Hacktoberfest 2022 website for more information <a href="https://hacktoberfest.com/">Here</a>
+<p>⚙️ Visit The Hacktoberfest 2022 website for more information <a href="https://hacktoberfest.com/">Here<br/></a>
 <br/>
 <img src="./hacktoberfest2022.png" alt="Hacktoberfest2022">
 
