@@ -10,7 +10,7 @@
 - Commit the changes
 - And make a pull request
 
-## I'll make sure to merge it in my repository
+## I'll make sure to merge it in my repository❤
 #Happy Coding!!
 ## Cheers🐱‍🏍
 
