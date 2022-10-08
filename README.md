@@ -1,7 +1,7 @@
 # CP-Codes
 
 ## You can add your code in my repository for Merge.
-## Steps to follow
+## Steps to follow🐱‍🏍
 
 - Fork my repository
 - Click on Add file 
