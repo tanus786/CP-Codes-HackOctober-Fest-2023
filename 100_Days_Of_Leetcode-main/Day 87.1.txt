@@ -1,0 +1,62 @@
+500. Keyboard Row
+
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+
+In the American keyboard:
+
+the first row consists of the characters "qwertyuiop",
+the second row consists of the characters "asdfghjkl", and
+the third row consists of the characters "zxcvbnm".
+
+ 
+
+Example 1:
+
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
+Example 2:
+
+Input: words = ["omk"]
+Output: []
+Example 3:
+
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]
+ 
+
+Constraints:
+
+1 <= words.length <= 20
+1 <= words[i].length <= 100
+words[i] consists of English letters (both lowercase and uppercase). 
+
+
+
+
+
+
+class Solution {
+    public String[] findWords(String[] w) {
+        int k=w.length;
+        ArrayList<String> nm=new ArrayList<>();
+        for(int i=0;i<k;i++)
+        {
+            int y=w[i].length();
+            String h=w[i].toLowerCase();
+            int a[]=new int[26];
+            for(int g=0;g<y;g++)
+            {
+                a[h.charAt(g)-'a']++;
+            }
+            if((a[0]==0&&a[18]==0&&a[3]==0&&a[5]==0&&a[6]==0&&a[7]==0&&a[9]==0&&a[10]==0&&a[11]==0&&a[25]==0&&a[23]==0&&a[2]==0&&a[21]==0&&a[1]==0&&a[13]==0&&a[12]==0)||(a[25]==0&&a[23]==0&&a[2]==0&&a[21]==0&&a[1]==0&&a[13]==0&&a[12]==0&&a[16]==0&&a[22]==0&&a[4]==0&&a[17]==0&&a[19]==0&&a[20]==0&&a[8]==0&&a[14]==0&&a[15]==0)||(a[16]==0&&a[22]==0&&a[4]==0&&a[17]==0&&a[19]==0&&a[20]==0&&a[8]==0&&a[14]==0&&a[15]==0&&a[0]==0&&a[18]==0&&a[3]==0&&a[5]==0&&a[6]==0&&a[7]==0&&a[9]==0&&a[10]==0&&a[11]==0))
+                nm.add(w[i]);
+        }
+        int d=nm.size();
+        String g[]=new String[d];
+        for(int i=0;i<d;i++)
+        {
+            g[i]=nm.get(i);
+        }
+        return g;
+    }
+}

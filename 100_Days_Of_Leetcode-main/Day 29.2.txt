@@ -1,0 +1,56 @@
+1796. Second Largest Digit in a String
+
+Given an alphanumeric string s, return the second largest numerical digit that appears in s, or -1 if it does not exist.
+
+An alphanumeric string is a string consisting of lowercase English letters and digits.
+
+ 
+
+Example 1:
+
+Input: s = "dfa12321afd"
+Output: 2
+Explanation: The digits that appear in s are [1, 2, 3]. The second largest digit is 2.
+Example 2:
+
+Input: s = "abc1111"
+Output: -1
+Explanation: The digits that appear in s are [1]. There is no second largest digit. 
+ 
+
+Constraints:
+
+1 <= s.length <= 500
+s consists of only lowercase English letters and/or digits.
+
+class Solution {
+    public int secondHighest(String s) {
+        int c[]=new int[10];
+        Arrays.fill(c,0);
+        int i,l=0,h=0;
+        for(i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)>='0'&&s.charAt(i)<='9')
+            {
+                c[s.charAt(i)-'0']++;
+            }
+        }
+        for(i=0;i<10;i++)
+        {
+            if(c[i]>0)
+                break;
+        }
+        if(i==10)
+            return -1;
+        for(i=9;i>=0;i--)
+        {
+            if(c[i]>0)
+                l++;
+            if(l==2)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+}

@@ -1,0 +1,197 @@
+1360. Number of Days Between Two Dates
+
+Write a program to count the number of days between two dates.
+
+The two dates are given as strings, their format is YYYY-MM-DD as shown in the examples.
+
+ 
+
+Example 1:
+
+Input: date1 = "2019-06-29", date2 = "2019-06-30"
+Output: 1
+Example 2:
+
+Input: date1 = "2020-01-15", date2 = "2019-12-31"
+Output: 15
+ 
+
+Constraints:
+
+The given dates are valid dates between the years 1971 and 2100.
+
+class Solution {
+    public int daysBetweenDates(String da1, String da2) {
+        int s=0,d1,m1,y1,d2,m2,y2,i,j;
+        y1=Integer.parseInt(da1.substring(0,4));
+        m1=Integer.parseInt(da1.substring(5,7));
+        d1=Integer.parseInt(da1.substring(8));
+        y2=Integer.parseInt(da2.substring(0,4));
+        m2=Integer.parseInt(da2.substring(5,7));
+        d2=Integer.parseInt(da2.substring(8));
+        if(y1>y2)
+        {
+            i=y1;
+            y1=y2;
+            y2=i;
+            i=m1;
+            m1=m2;
+            m2=i;
+            i=d1;
+            d1=d2;
+            d2=i;
+        }
+        else if(y1==y2&&m2<m1)
+        {
+            i=m1;
+            m1=m2;
+            m2=i;
+            i=d1;
+            d1=d2;
+            d2=i;
+        }
+        else if(d1>d2&&m1==m2&&y1==y2)
+        {
+            i=d1;
+            d1=d2;
+            d2=i;
+        }
+        if(y1==y2)
+        {
+            if(m1==m2)
+            {
+                s=s+(d2-d1);
+            }
+            else if(m1!=m2)
+            {
+                if(y1%400==0||y1%4==0&&y1%100!=0)
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+(31-d1);
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+(30-d1);
+                    else
+                        s=s+(29-d1);
+                    m1++;
+                    while(m1!=m2)
+                    {
+                        if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                            s=s+31;
+                        else if(m1==4||m1==6||m1==9||m1==11)
+                            s=s+30;
+                        else
+                            s=s+29;
+                        m1++;
+                    }
+                    s=s+d2;
+                }
+                else
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+(31-d1);
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+(30-d1);
+                    else
+                        s=s+(28-d1);
+                    m1++;
+                    while(m1!=m2)
+                    {
+                        if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                            s=s+31;
+                        else if(m1==4||m1==6||m1==9||m1==11)
+                            s=s+30;
+                        else
+                            s=s+29;
+                        m1++;
+                    }
+                    s=s+d2;
+                }
+            }
+            return s;
+        }
+        else
+        {
+            if(y1%400==0||y1%4==0&&y1%100!=0)
+            {
+                if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                    s=s+(31-d1);
+                else if(m1==4||m1==6||m1==9||m1==11)
+                    s=s+(30-d1);
+                else
+                    s=s+(29-d1);
+                m1++;
+                while(m1!=13)
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+31;
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+30;
+                    else
+                        s=s+29;
+                    m1++;
+                }
+            }
+            else
+            {
+                if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                    s=s+(31-d1);
+                else if(m1==4||m1==6||m1==9||m1==11)
+                    s=s+(30-d1);
+                else
+                    s=s+(28-d1);
+                m1++;
+                while(m1!=13)
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+31;
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+30;
+                    else
+                        s=s+28;
+                    m1++;
+                }
+            }
+            for(i=++y1;i<y2;i++)
+            {
+                if(i%400==0||i%4==0&&i%100!=0)
+                {
+                    s=s+366;
+                }
+                else
+                {
+                    s=s+365;
+                }
+            }
+            m1=1;
+            if(i%400==0||i%4==0&&i%100!=0)
+            {
+                while(m1!=m2)
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+31;
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+30;
+                    else
+                        s=s+29;
+                    m1++;
+                }
+                s=s+d2;
+            }
+            else
+            {
+                while(m1!=m2)
+                {
+                    if(m1==1||m1==3||m1==5||m1==7||m1==8||m1==10||m1==12)
+                        s=s+31;
+                    else if(m1==4||m1==6||m1==9||m1==11)
+                        s=s+30;
+                    else
+                        s=s+28;
+                    m1++;
+                }
+                s=s+d2;
+            }
+            return s;
+        }
+    }
+}

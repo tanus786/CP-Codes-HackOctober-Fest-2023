@@ -1,0 +1,74 @@
+461. Hamming Distance
+
+The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+
+Given two integers x and y, return the Hamming distance between them.
+
+ 
+
+Example 1:
+
+Input: x = 1, y = 4
+Output: 2
+Explanation:
+1   (0 0 0 1)
+4   (0 1 0 0)
+       ↑   ↑
+The above arrows point to positions where the corresponding bits are different.
+Example 2:
+
+Input: x = 3, y = 1
+Output: 1
+ 
+
+Constraints:
+
+0 <= x, y <= 231 - 1
+
+
+
+class Solution {
+    public int hammingDistance(int x, int y) {
+        String p=Integer.toBinaryString(x),q=Integer.toBinaryString(y);
+        if(p.length()>q.length())
+        {
+            int i=p.length()-1,j=q.length()-1,c=0;
+            for(;j>=0;j--,i--)
+            {
+                if(p.charAt(i)!=q.charAt(j))
+                    c++;
+            }
+            for(;i>=0;i--)
+            {
+                if(p.charAt(i)=='1')
+                    c++;
+            }
+            return c;
+        }
+        else if(p.length()<q.length())
+        {
+            int i=p.length()-1,j=q.length()-1,c=0;
+            for(;i>=0;j--,i--)
+            {
+                if(p.charAt(i)!=q.charAt(j))
+                    c++;
+            }
+            for(;j>=0;j--)
+            {
+                if(q.charAt(j)=='1')
+                    c++;
+            }
+            return c;
+        }
+        else
+        {
+            int i,c=0;
+            for(i=0;i<p.length();i++)
+            {
+                if(p.charAt(i)!=q.charAt(i))
+                    c++;
+            }
+            return c;
+        }
+    }
+}
