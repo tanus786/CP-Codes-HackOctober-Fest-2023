@@ -1,0 +1,70 @@
+347. Top K Frequent Elements
+
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Example 2:
+
+Input: nums = [1], k = 1
+Output: [1]
+ 
+
+Constraints:
+
+1 <= nums.length <= 105
+k is in the range [1, the number of unique elements in the array].
+It is guaranteed that the answer is unique.
+ 
+
+Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+
+
+
+class Solution {
+    public int[] topKFrequent(int[] n, int k) {
+        int i,j,m=0;
+        int a[]=new int[n.length];
+        int b[]=new int[n.length];
+        for(i=0;i<n.length;i++)
+        {
+            for(j=0;j<m;j++)
+            {
+                if(a[j]==n[i])
+                    break;
+            }
+            if(j==m)
+            {
+                a[m]=n[i];
+                b[m++]=1;
+            }
+            else
+                b[j]=b[j]+1;
+        }
+        for(i=0;i<a.length-1;i++)
+        {
+            for(j=0;j<a.length-i-1;j++)
+            {
+                if(b[j]<b[j+1])
+                {
+                    int d=b[j];
+                    b[j]=b[j+1];
+                    b[j+1]=d;
+                    d=a[j];
+                    a[j]=a[j+1];
+                    a[j+1]=d;
+                }
+            }
+        }
+        int h[]=new int[k];
+        for(i=0;i<k;i++)
+        {
+            h[i]=a[i];
+        }
+        return h;
+    }
+}
