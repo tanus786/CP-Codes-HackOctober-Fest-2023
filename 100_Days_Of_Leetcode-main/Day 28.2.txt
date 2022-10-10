@@ -1,0 +1,82 @@
+234. Palindrome Linked List
+
+Given the head of a singly linked list, return true if it is a palindrome.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,2,1]
+Output: true
+Example 2:
+
+
+Input: head = [1,2]
+Output: false
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+ 
+
+Follow up: Could you do it in O(n) time and O(1) space?
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head.next==null)
+            return true;
+        int c=count(head),k=1;
+        Stack<Integer> nm=new Stack<>();
+        ListNode ptr;
+        if(c%2==0)
+        {
+            for(ptr=head;ptr!=null;ptr=ptr.next,k++)
+            {
+                if(nm.isEmpty()||k<=(c/2))
+                    nm.push(ptr.val);
+                else if(k>(c/2)&&nm.peek()==ptr.val)
+                    nm.pop();
+                else if(nm.peek()!=ptr.val&&k>(c/2))
+                    break;
+            }
+            return nm.isEmpty()?true:false;
+        }
+        else
+        {
+            for(ptr=head;ptr!=null;ptr=ptr.next,k++)
+            {
+                if(k<=(c/2)||nm.isEmpty())
+                    nm.push(ptr.val);
+                else if(nm.peek()==ptr.val&&k>((c/2)+1))
+                    nm.pop();
+                else if(nm.peek()!=ptr.val&&k>((c/2)+1))
+                    break;
+            }
+            return nm.isEmpty()?true:false;
+        }
+    }
+    int count(ListNode head)
+    {
+        ListNode ptr;
+        int c=0;
+        for(ptr=head;ptr!=null;ptr=ptr.next)
+        {
+            c++;
+        }
+        return c;
+    }
+}
