@@ -1,0 +1,66 @@
+
+1.
+
+import java.util.*;
+class Program {
+  public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) 
+	{
+    // Write your code here.
+    	int arr=0;
+	int sq=0;
+	while (sq<sequence.size()){
+	    if(sq<=arr){
+	        for (int m=0;m<array.size();m++){
+	            if(sq>=sequence.size()){
+	                break;
+								}
+	            if(array.get(m) == sequence.get(sq)){
+	                sq=sq+1;
+	                arr=m;
+								}
+					}
+			}	                
+	            
+	    break;
+		}
+	if(sq == sequence.size()){
+		return (true);
+		}
+	else{
+		return (false);
+  }
+}
+}
+
+
+2.
+import java.util.*;
+class Program {
+  public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) 
+	{
+    // Write your code here.
+    	int arr=0;
+	int sq=0;
+	while (sq<sequence.size()){
+	    if(sq<=arr){
+	        for (int m=0;m<array.size();m++){
+	            if(sq>=sequence.size()){
+	                break;
+								}
+	            if(array.get(m) == sequence.get(sq)){
+	                sq=sq+1;
+	                arr=m;
+								}
+					}
+			}	                
+	            
+	    break;
+		}
+	if(sq == sequence.size()){
+		return (true);
+		}
+	else{
+		return (false);
+  }
+}
+}
