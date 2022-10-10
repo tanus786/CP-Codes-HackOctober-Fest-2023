@@ -1,0 +1,65 @@
+744. Find Smallest Letter Greater Than Target
+
+Given a characters array letters that is sorted in non-decreasing order and a character target, return the smallest character in the array that is larger than target.
+
+Note that the letters wrap around.
+
+For example, if target == 'z' and letters == ['a', 'b'], the answer is 'a'.
+ 
+
+Example 1:
+
+Input: letters = ["c","f","j"], target = "a"
+Output: "c"
+Example 2:
+
+Input: letters = ["c","f","j"], target = "c"
+Output: "f"
+Example 3:
+
+Input: letters = ["c","f","j"], target = "d"
+Output: "f"
+Example 4:
+
+Input: letters = ["c","f","j"], target = "g"
+Output: "j"
+Example 5:
+
+Input: letters = ["c","f","j"], target = "j"
+Output: "c"
+ 
+
+Constraints:
+
+2 <= letters.length <= 104
+letters[i] is a lowercase English letter.
+letters is sorted in non-decreasing order.
+letters contains at least two different characters.
+target is a lowercase English letter.
+
+
+class Solution {
+    public char nextGreatestLetter(char[] l, char t) {
+        if(t=='z'||t==l[l.length-1])
+            return l[0];
+        char c;
+        int i=0,f=0;
+        for(c=(char)(t+1);c<='z';c++)
+        {
+            for(i=0;i<l.length;i++)
+            {
+                if(l[i]==c)
+                {
+                    f=1;
+                    break;
+                }
+            }
+            if(f==1)
+                break;
+        }
+        if((int)c==123&&f==0)
+            return l[0];
+        else
+            return l[i];
+    }
+}

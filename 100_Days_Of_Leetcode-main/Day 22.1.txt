@@ -1,0 +1,67 @@
+1185. Day of the Week
+
+Given a date, return the corresponding day of the week for that date.
+
+The input is given as three integers representing the day, month and year respectively.
+
+Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
+
+ 
+
+Example 1:
+
+Input: day = 31, month = 8, year = 2019
+Output: "Saturday"
+Example 2:
+
+Input: day = 18, month = 7, year = 1999
+Output: "Sunday"
+Example 3:
+
+Input: day = 15, month = 8, year = 1993
+Output: "Sunday"
+ 
+
+Constraints:
+
+The given dates are valid dates between the years 1971 and 2100.
+
+
+class Solution {
+    public String dayOfTheWeek(int d, int m, int y) {
+        String a[]={"Saturday","Sunday","Monday","Tuesday","Wednesday","Thursday","Friday"};
+        int k,h=0;
+        k=y%100;
+        k/=4;
+        k+=d;
+        if(m==1||m==10)
+            h=1;
+        else if(m==2||m==3||m==11)
+            h=4;
+        else if(m==4||m==7)
+            h=0;
+        else if(m==5)
+            h=2;
+        else if(m==6)
+            h=5;
+        else if(m==8)
+            h=3;
+        else if(m==9||m==12)
+            h=6;
+        k+=h;
+        if(((y%400==0)||(y%4==0&&y%100!=0))&&(m==1||m==2))
+            k=k-1;
+        if(y/100==20)
+        {
+            k=k+6;
+        }
+        else if(y/100==21)
+        {
+            y-=400;
+            k=k+4;
+        }
+        k=k+(y%100);
+        k=k%7;
+        return a[k];
+    }
+}

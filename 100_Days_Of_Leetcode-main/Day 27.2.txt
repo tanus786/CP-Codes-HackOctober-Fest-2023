@@ -1,0 +1,83 @@
+1836. Remove Duplicates from unsorted List
+
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,1,2]
+Output: [1,2]
+Example 2:
+
+
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [0, 300].
+-100 <= Node.val <= 100
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head==null)
+            return null;
+        if(head.next==null)
+            return head;
+        if(head.next.next==null&&head.val==head.next.val)
+        {
+            head.next=null;
+            return head;
+        }
+        ListNode ptr,k,ptr1;
+        int f;
+        for(ptr=head;ptr.next!=null;ptr=ptr.next)
+        {
+            for(ptr1=ptr.val;ptr1!=null;ptr1=ptr1.next)
+            {
+                if(ptr.val>ptr1.val)
+                {
+                    f=ptr.val;
+                    ptr.val=ptr1.val;
+                    ptr1.val=f;
+                }
+            }
+        }
+        f=0;
+        for(ptr=head;ptr.next.next!=null;ptr=ptr.next)
+        {
+            if(ptr.val==ptr.next.val)
+            {
+                k=ptr;
+                while(k.val==ptr.val&&k.next!=null)
+                {
+                    k=k.next;
+                }
+                ptr.next=k;
+            }
+            if(ptr.next.next==null)
+            {
+                f=1;
+                break;
+            }
+        }
+        if(ptr.val==ptr.next.val&&f==1)
+            ptr.next=null;
+        else if(ptr.val==ptr.next.val)
+            ptr.next=null;
+        return head;
+    }
+}
