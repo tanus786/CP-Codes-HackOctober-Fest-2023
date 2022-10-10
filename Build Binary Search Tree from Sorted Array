@@ -1,0 +1,56 @@
+//Construct bst from sorted array
+#include <iostream>
+using namespace std;
+
+class Node
+{
+public:
+    int data;
+    Node *left;
+    Node *right;
+    Node(int value)
+    {
+        data = value;
+        left = NULL;
+        right = NULL;
+    }
+};
+
+Node *create_node(int arr[], int min, int max)
+{
+    if (min > max)
+    {
+        return NULL;
+    }
+    if (min == max)
+    {
+        Node *root = new Node(arr[min]);
+        return root;
+    }
+
+    int a = (min + max) / 2;
+    Node *root = new Node(arr[a]);
+    root->left = create_node(arr, min, a - 1);
+    root->right = create_node(arr, a + 1, max);
+    return root;
+}
+
+void inorder(Node *root)
+{
+    if (root==NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+    
+}
+
+int main()
+{
+    int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9,10};
+    Node *root=create_node(arr,0,9);
+    inorder(root);
+    return 0;
+}
