@@ -1,5 +1,5 @@
 # CP-Codes-HackOctober-Fest-2022
-## You can follow this steps to merge your Pull request in my Repository
+## You can follow this steps to Merge your Pull request in my Repository
 
 - Firstly fork my Repository
 - Click on Add file
