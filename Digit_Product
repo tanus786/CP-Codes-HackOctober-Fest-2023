@@ -1,0 +1,19 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout<<"Enter the number:";
+    cin>>n;
+    int prod=1;
+    int m=n;
+    while(m>0)
+    {
+        
+        prod=prod*(m%10);
+        m=m/10;
+    }
+    cout<<"Product of the digits:"<<prod<<endl;
+
+    return 0;
+}
