@@ -18,7 +18,7 @@ int main()
     while (!write_f.eof())
     {
         write_f.get(str);
-        if (str == ' ')
+        if (str== ' ')
         {
             c_words++;
         }
