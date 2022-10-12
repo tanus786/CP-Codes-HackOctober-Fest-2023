@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Function to find number of subarrays having
+// Function to find the number of subarrays having
 // sum less than or equal to x.
 int countSub(int arr[], int n, int x)
 {
