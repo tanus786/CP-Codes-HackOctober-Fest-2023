@@ -4,7 +4,7 @@ class Solution {
          int maxSum = nums[0]; 
   
          for(int i=0; i<nums.length; i++) { 
-             MaxEnd = MaxEnd + nums[i]; 
+             MaxEnd = MaxEnd+nums[i]; 
              if(MaxEnd > maxSum) { 
                  maxSum = MaxEnd; 
              } 
