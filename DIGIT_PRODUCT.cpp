@@ -11,5 +11,5 @@ int main()
         prod=prod*(k%10);
         k=k/10;
     }
-    cout<<"Product of digits of given number is : "<<prod<<endl;
+    cout<<"Product of digits of given number : "<<prod<<endl;
 }
