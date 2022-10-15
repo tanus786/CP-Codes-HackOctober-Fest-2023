@@ -9,10 +9,10 @@ string check(int n){
         return "No";
         
     while(n!=1){
-        if(n%2!=0)
+        if(n%3!=0)
             return "No";
             
-        n/=2;
+        n/=3;
     }
     return "Yes";
 }
