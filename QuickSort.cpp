@@ -19,8 +19,8 @@ int partition(int arr[], int low, int high)
 {
 	int pivot = arr[high]; // pivot
 	int i
-		= (low
-		- 1); // Index of smaller element and indicates
+		= (low- 1);
+		 // Index of smaller element and indicates
 				// the right position of pivot found so far
 
 	for (int j = low; j <= high - 1; j++) {
@@ -30,7 +30,7 @@ int partition(int arr[], int low, int high)
 			swap(&arr[i], &arr[j]);
 		}
 	}
-	swap(&arr[i + 1], &arr[high]);
+	swap(&arr[i + 1], &arr[high]); // calling swap function for i and high
 	return (i + 1);
 }
 
