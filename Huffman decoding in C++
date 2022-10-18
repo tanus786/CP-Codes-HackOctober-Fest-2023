@@ -1,0 +1,58 @@
+#include <iostream>
+#include <queue>
+using namespace std;
+class node
+{
+public:
+    char data;
+    node *left, *right;
+    node(char c)
+    {
+        data = c;
+        left = right = NULL;
+    }
+};
+
+string decode_huff(node * root, string s) {
+    string temp="";
+    struct node*head=root;
+    for(int i=0;i<s.size();i++)
+    {
+        if(s[i]=='1')
+        {
+            cout<<"GOing to right"<<endl;
+            head=head->right;
+        }
+        else 
+        {
+             cout<<"GOing to left"<<endl;
+        head=head->left;
+        }
+        if(head->left==NULL && head->right==NULL)
+        {
+            temp+=head->data;
+            cout<<temp<<endl;
+            head=root;
+        }
+    }
+   return temp;
+}
+
+int main()
+{
+    node *root = new node('&');
+    root->left = new node('&');
+    root->left->left = new node('k');
+    root->left->right = new node('&');
+    root->left->right->left = new node('o');
+    root->left->right->right = new node('g');
+    root->right = new node('&');
+    root->right->left = new node('e');
+    root->right->right = new node('&');
+    root->right->right->right = new node('s');
+    root->right->right->left = new node('&');
+    root->right->right->left->left = new node('f');
+    root->right->right->left->right = new node('r');
+    cout<<decode_huff(root,"01110100011111000101101011101000111");
+    return 0;
+}
