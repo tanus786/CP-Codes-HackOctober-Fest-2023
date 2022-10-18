@@ -1,4 +1,4 @@
-// creats a public class heap sort
+
 public class HeapSort {
 	public static void sort(int arr[])
 	{
