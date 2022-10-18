@@ -18,7 +18,7 @@ int main() {
     int num;
     std::cout << "Enter the number to search: \n";
     std::cin >> num;
-    int index = binarySearch(arr, 0, n - 1, num);//function call
+    int index = binarySearch(arr, 0, n - 1, num);//function call and storing the value to index
     if (index == -1) {
         std::cout << num << " doesn't exist in the array";
     }
