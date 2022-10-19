@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+class Node{
+   public:
+   int data;
+   Node*next;
+//    constructer 
+   Node(int data){
+      this->data=data;
+      this->next=NULL;
+      
+    }
+  
+};
+
+void insertNode(Node*&tail,int element,int data){
+    if(tail==NULL){
+        Node*newNode=new Node(data);
+        tail=newNode;
+        newNode->next=newNode;
+    }
+    else{
+        Node*curr=tail;
+        while (curr->data!=element)
+        {
+            curr=curr->next;
+        }
+        Node*temp=new Node(data);
+        temp->next=curr->next;
+        curr->next=temp;
+    }
+}
+
+void printNode(Node*tail){
+    Node*temp=tail;
+    do
+    {
+        cout<<tail->data<<" ";
+        tail=tail->next;    
+    } while (tail!=temp);
+    cout<<endl;
+    
+}
+
+
+int main(){
+
+    Node*tail=new Node(8);
+    Node*first=new Node(9);
+    Node*second=new Node(10);
+    tail->next=first;
+    first->next=second;
+    second->next=tail;
+    // tail->next=tail;
+    printNode(tail);
+    insertNode(tail, 10, 20);
+    printNode(tail);
+    insertNode(tail, 20, 30);
+    printNode(tail);
+    insertNode(tail, 10, 15);
+    printNode(tail);
+
+
+   return 0;
+}
