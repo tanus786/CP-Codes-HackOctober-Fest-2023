@@ -1,6 +1,6 @@
 # CP-Codes-HackOctober-Fest-2022
 
-This Repository is made to give beginners a head start for hacktoberfest, and to welcome you all to the open source community.
+This Repository is made to give beginners a head start for Hacktoberfest, and to welcome you all to the open source community.
 
 ## You can follow this steps to Merge your Pull request in my Repository
 
