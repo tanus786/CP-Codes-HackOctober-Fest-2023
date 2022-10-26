@@ -1,0 +1,14 @@
+Sandy's store has N pre-owned clock parts for sale, where the ith part is of style Si. The store also has two display cases, each capable of holding at most K parts. To maximize the aesthetics of Sandy's secondhand second hands, she'd like to put each of the N parts into one of the two cases so that neither case ends up with two different parts of the same style, and neither case has more than K parts total. Can you determine if this is possible?
+
+Constraints
+1≤T≤90
+1≤N,K,Si≤100
+
+Input Format
+Input begins with an integer T, the number of test cases. For each test case, there is first a line containing 2 space-separated integers, N and K. Then, there is a line containing N space-separated integers, S1, ..., SN.
+
+Output Format
+For the ith test case, print "Case #i: " followed by "YES" if it's possible to arrange the N parts into two cases satisfying the description above, or "NO" otherwise.
+
+Sample Test Case
+Suppose there are 3 parts of styles 1, 2, and 2, with the display cases having capacity 2. One solution is to put the first and third parts in one display case, and the second part in the other.
