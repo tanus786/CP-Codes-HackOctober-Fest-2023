@@ -1,0 +1,8 @@
+Sandbox Security Model
+
+In computer security, a sandbox is a security mechanism for separating running programs, usually in order to minimize system failures or software vulnerabilities from spreading. In general, a sandbox is an isolated computing environment in which a program or file can be executed without affecting the application in which it runs. Sandboxes are used by software developers to test new programming code.
+
+* A sandbox typically provides a tightly controlled set of resources for guest programs to run in, such as limited space on disk and memory.
+* In a Java programming language, the sandbox is the program area and it has some set of rules that programmers need to follow when creating Java code (like an applet) that is sent as part of a page.
+* Since a Java applet is sent automatically as part of the page and can be executed as soon as it arrives, the applet can easily do harm, either accidentally or intentionally
+* The sandbox restrictions provide strict limitations on which system resources the applet can request or access.The programmer must write code that “plays” only within the sandbox, such as children are allowed to play within the confined limits of a place. The sandbox can be conceived as a small area within your computer where an applet’s code can play freely – but it’s not allowed to play anywhere else.
