@@ -1,0 +1,36 @@
+What Is Data Security?
+Data security is the process of safeguarding digital information throughout its entire life cycle to protect it from corruption, theft, or unauthorized access. It covers everything—hardware, software, storage devices, and user devices; access and administrative controls; and organizations’ policies and procedures.
+
+Data security uses tools and technologies that enhance visibility of a company's data and how it is being used. These tools can protect data through processes like data masking, encryption, and redaction of sensitive information. The process also helps organizations streamline their auditing procedures and comply with increasingly stringent data protection regulations.
+
+A robust data security management and strategy process enables an organization to protect its information against cyberattacks. It also helps them minimize the risk of human error and insider threats, which continue to be the cause of many data breaches. 
+
+Why Is Data Security Important?
+There are many reasons why data security is important to organizations in all industries all over the world. Organizations are legally obliged to protect customer and user data from being lost or stolen and ending up in the wrong hands. For example, industry and state regulations like the California Consumer Privacy Act (CCPA), the European Union’s General Data Protection Regulation (GDPR), the Health Insurance Portability and Accountability Act (HIPAA), and the Payment Card Industry Data Security Standard (PCI DSS) outline organizations’ legal obligations to protect data.
+
+Data cybersecurity is also crucial to preventing the reputational risk that accompanies a data breach. A high-profile hack or loss of data can result in customers losing trust in an organization and taking their business to a competitor. This also runs the risk of serious financial losses, along with fines, legal payments, and damage repair in case sensitive data is lost.
+
+Data Security Definition: Benefits of Data Security
+What is data security? In a way, data security is easier to define by looking at the benefits, which are explained in more detail below:
+
+* Keeps your information safe: By adopting a mindset focused on data security and implementing the right set of tools, you ensure sensitive data does not fall into the wrong hands. Sensitive data can include customer payment information, hospital records, and identification information, to name just a few. With a data security program created to meet the specific needs of your organization, this info stays safe and secure.
+* Helps keep your reputation clean: When people do business with your organization, they entrust their sensitive information to you, and a data security strategy enables you to provide the protection they need. Your reward? A stellar reputation among clients, partners, and the business world in general.
+* Gives you a competitive edge: In many industries, data breaches are commonplace, so if you can keep data secure, you set yourself apart from the competition, which may be struggling to do the same.
+* Saves on support and development costs: If you incorporate data security measures early in the development process, you may not have to spend valuable resources for designing and deploying patches or fixing coding problems down the road.
+
+Data Security vs. Data Privacy
+
+Data security and data privacy both involve protecting data, but they are different. Data security entails controlling access to data using stark, black-and-white terms. For example, a data security policy may dictate that no one other than someone troubleshooting a database issue is allowed to see customer payment information—period. In that way, you reduce your chances of suffering a data security breach.
+
+Data privacy, on the other hand, involves more subtle, strategic decisions around who gets access to certain kinds of data. Using the same example, another organization may say, “Well, it may help the development team to know if a lot of customers have been paying using PayPal. Then they could decide whether it would be wise to start accepting Payoneer, Skrill, or Stripe, too. Let’s give them access to payment info for the next two weeks.”
+
+When it comes to data security in cloud computing or on-premises environments, these kinds of decisions fall more under the purview of data privacy.
+
+Best Practices for Ensuring Data Security and Privacy
+
+Why is data security important?
+Primarily, it keeps your data secure and builds confidence among your customers. Here are some best practices that have been effective for other organizations:
+
+Secure your information: This means managing who has access and encrypting your data. Only people who need it to perform essential functions should have access, and information should be encrypted as it goes back and forth between the database and their computer or device.
+Prepare ahead of time for threats: You can get ready for a potential data security incident by testing your system, educating employees, devising an incident management plan, and creating a data recovery plan.
+Delete data you are not using: You should get rid of both digital and physical copies of data you no longer need. In this way, you reduce the chances of a hacker discovering it and using it for profit.
