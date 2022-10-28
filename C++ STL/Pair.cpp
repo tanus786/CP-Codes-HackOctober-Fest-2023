@@ -1,17 +1,12 @@
-// CPP program to illustrate
-// Initializing of pair STL
-#include <iostream>
-#include <utility>
+#include<bits/stdc++.h>
 using namespace std;
 
-// Driver Code
-int main()
-{
-	// defining a pair
-	pair<string, double> PAIR2("TNT", 1.23);
-
-	cout << PAIR2.first << " ";
-	cout << PAIR2.second << endl;
-
-	return 0;
+int main(){
+  pair<string, int> p;
+  p.first="Shivam";
+  p.second=21;
+  
+  cout<<"First element of pair "<<p.first<<endl;
+  cout<<"Second element of pair "<<p.second<<endl;  
+  return 0;
 }
