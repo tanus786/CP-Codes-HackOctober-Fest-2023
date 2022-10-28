@@ -1,0 +1,17 @@
+int findClosestNumber(vector<int>& nums) {
+        int distance = INT_MAX, result = INT_MIN;
+        
+        sort(nums.begin(),nums.end());
+        
+        
+        for(int i=0;i<nums.size();i++)
+        {
+            int x = abs(nums[i]-0);
+            if(x <= distance)
+            {
+                distance = min(x,distance);
+                result = max(result,nums[i]);
+            }
+        }
+        return result;
+    }

@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+int printheap(int N){return 0;}
+int set_min_vertex(vector<int> value, vector<bool> set_mst)
+{
+    int minimum = INT_MAX, vertex,a=value.size();
+    for (int i = 0; i < a; i++)
+    {
+        if (set_mst[i] == false && value[i] < minimum)
+        {
+            vertex = i;
+            minimum = value[i];
+        }
+    }
+    return vertex;
+}
+
+int find_mst(vector<vector<int>> graph)
+{
+    int v=graph.size();
+    int parent[v];
+    vector<int> value(v, INT_MAX);
+    vector<bool> set_mst(v, false);
+    parent[0] = -1;
+    value[0] = 0;
+
+    for (int i = 0; i < v - 1; i++)
+    {
+        int u = set_min_vertex(value, set_mst);
+        set_mst[u] = true;
+        for (int j = 0; j < v; j++)
+        {
+            if (graph[u][j] != 0 && set_mst[j] == false && graph[u][j] < value[j])
+            {
+                value[j] = graph[u][j];
+                parent[j] = u;
+            }
+        }
+    }
+  int sum=0;
+    for (int i = 1; i < v; i++)
+    {
+        sum+= graph[i][parent[i]];
+    }
+    return sum;
+}
+int main()
+{
+   int t,n,m;
+   cin>>t;
+   while(t--)
+   {
+       cin>>n>>m;
+        vector<vector<int>> vec(n,vector<int>(n));
+        while(n--)
+        {
+            int a,b,c;
+            cin>>a>>b>>c;
+            vec[a-1][b-1]=vec[b-1][a-1]=-c;
+        }
+        cout<<-find_mst(vec)<<endl;
+   }
+	return 0;
+}

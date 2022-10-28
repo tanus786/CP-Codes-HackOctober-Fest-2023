@@ -1,0 +1,87 @@
+Why Tree Data Structure?
+Other data structures such as arrays, linked list, stack, and queue are linear data structures that store data sequentially. In order to perform any operation in a linear data structure, the time complexity increases with the increase in the data size. But, it is not acceptable in today's computational world.
+
+Different tree data structures allow quicker and easier access to the data as it is a non-linear data structure.
+
+Tree Terminologies
+Node
+A node is an entity that contains a key or value and pointers to its child nodes.
+
+The last nodes of each path are called leaf nodes or external nodes that do not contain a link/pointer to child nodes.
+
+The node having at least a child node is called an internal node.
+
+Edge
+It is the link between any two nodes.
+
+Root
+It is the topmost node of a tree.
+
+Height of a Node
+The height of a node is the number of edges from the node to the deepest leaf (ie. the longest path from the node to a leaf node).
+
+Depth of a Node
+The depth of a node is the number of edges from the root to the node.
+
+Height of a Tree
+The height of a Tree is the height of the root node or the depth of the deepest node.
+
+Degree of a Node
+The degree of a node is the total number of branches of that node.
+
+Forest
+A collection of disjoint trees is called a forest.
+
+Types of Tree-
+1- Binary Tree
+2- Binary Search Tree
+3- AVL Tree
+4- B-Tree
+
+Tree Applications-
+1- Binary Search Trees(BSTs) are used to quickly check whether an element is present in a set or not.
+2- Heap is a kind of tree that is used for heap sort.
+3- A modified version of a tree called Tries is used in modern routers to store routing information.
+4- Most popular databases use B-Trees and T-Trees, which are variants of the tree structure we learned above to store their data
+5- Compilers use a syntax tree to validate the syntax of every program you write.
+
+Binary Tree-->
+
+A binary tree is a tree data structure in which each parent node can have at most two children. Each node of a binary tree consists of three items:
+* data item
+* address of left child
+* address of right child
+
+Binary Search Tree(BST)-->
+
+Binary search tree is a data structure that quickly allows us to maintain a sorted list of numbers.
+
+It is called a binary tree because each tree node has a maximum of two children.
+It is called a search tree because it can be used to search for the presence of a number in O(log(n)) time.
+The properties that separate a binary search tree from a regular binary tree is-
+
+1- All nodes of left subtree are less than the root node
+2- All nodes of right subtree are more than the root node
+3- Both subtrees of each node are also BSTs i.e. they have the above two properties
+
+AVL Tree-->
+
+AVL tree is a self-balancing binary search tree in which each node maintains extra information called a balance factor whose value is either -1, 0 or +1.
+
+AVL tree got its name after its inventor Georgy Adelson-Velsky and Landis.
+
+<Balance Factor>
+Balance factor of a node in an AVL tree is the difference between the height of the left subtree and that of the right subtree of that node.
+
+Balance Factor = (Height of Left Subtree - Height of Right Subtree) or (Height of Right Subtree - Height of Left Subtree)
+
+The self balancing property of an avl tree is maintained by the balance factor. The value of balance factor should always be -1, 0 or +1.
+
+B-tree-->
+
+B-tree is a special type of self-balancing search tree in which each node can contain more than one key and can have more than two children. It is a generalized form of the binary search tree.
+
+It is also known as a height-balanced m-way tree.
+
+
+

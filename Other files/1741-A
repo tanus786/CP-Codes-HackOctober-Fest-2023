@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){ 
+    int n;
+    cin>>n;
+    for (int i = 0; i < n; i++) {
+        string a,b;
+        cin>>a>>b;
+        int c[4]={0},d[4]={0};
+        for (int j = 0; j < a.size(); j++) {
+           if(a[j]=='L'){c[0]++;}
+           else if(a[j]=='M'){c[1]++;}
+           else if (a[j]=='S'){c[2]++;}
+           else if(a[j]=='X'){c[3]++;}
+        }
+         for (int j = 0; j < b.size(); j++) {
+            if(b[j]=='L'){d[0]++;}
+           else if(b[j]=='M'){d[1]++;}
+           else if (b[j]=='S'){d[2]++;}
+           else if(b[j]=='X'){d[3]++;}
+        }
+        
+        if((c[0]==1&&(d[1]==1||d[2]==1))||(c[1]==1&&d[2]==1)){cout<<">\n";}
+        else if(c[0]==1&&d[0]==1){
+            if(c[3]>d[3]){cout<<">\n";}
+            else if(c[3]<d[3]){cout<<"<\n";}
+            else {cout<<"=\n";}
+        }
+        else if(c[2]==1&&d[2]==1){
+            if(c[3]>d[3]){cout<<"<\n";}
+            else if(c[3]<d[3]){cout<<">\n";}
+            else {cout<<"=\n";}
+        }
+        else if(c[1]==1&&d[1]==1){cout<<"=\n";}
+        else{cout<<"<\n";}
+    }
+    return 0;
+}
