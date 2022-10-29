@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+      while(t--){
+          int N;
+          cin>>N;
+          int A[N];
+          int count=0;
+          map<int,int> m;
+          for(int i=0; i<N; i++){
+              cin>>A[i];
+              m[A[i]]++;
+          }
+          for(auto x:m){
+              if(x.second>count)
+              count=x.second;
+              
+          }
+          
+          cout<<N-count<<endl;
+          
+      }
+	return 0;
+}
