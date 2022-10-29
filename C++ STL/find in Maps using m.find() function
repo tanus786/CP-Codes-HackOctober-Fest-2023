@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	map<int, string> m;
+	m[1]="abc";
+	m[5]="acd";
+	m[3]="cdc";
+	m[6]="a";
+	m[5]="cde";
+	auto it = m.find(3);
+	if(it==m.end()){
+	    cout<<"No value";
+	}
+	else{
+	    cout<<(*it).first<<" "<<(*it).second;
+	}
+	return 0;
+}
