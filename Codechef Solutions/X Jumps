@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+      while(t--){
+          int X,Y;
+          cin>>X>>Y;
+          int m= X%Y;
+          int K = (X-m)/Y;
+          cout<<m+K<<endl;
+      }
+	return 0;
+}
