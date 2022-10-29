@@ -1,104 +1,111 @@
-#include <iostream>
-#include <cmath>
+#include<bits/stdc++.h>
+using namespace std;
 
-struct Heap
-{
-    int array_size;
-    int array[array_size];
-    int last_index;
+class MaxHeap{
+	public:
+		vector<int> maxHeap;
+		int heapSize;
+		int realSize=0;
+
+		void resizeIt(int size){
+			heapSize = size;
+			maxHeap.resize(heapSize+1);
+			maxHeap[0] = -1;
+		}
+
+		int peek(){
+			return maxHeap[1];
+		}
+
+		void add(int element){
+			realSize++;
+
+			if(realSize>heapSize){
+				cout<<"Added too many elements!"<<endl;
+				realSize--;
+				return;
+			}
+
+			maxHeap[realSize] = element;
+
+			int index = realSize;
+
+			int parent = index/2;
+
+			while(maxHeap[parent]<maxHeap[index] && index>1){
+				swap(maxHeap[parent], maxHeap[index]);
+				index = parent;
+				parent = index/2;
+			}
+		}
+
+		int pop(){
+
+			if(realSize<1){
+				cout<<"Not enough element in the Heap!";
+				return INT_MAX;
+			} else{
+				int removed = maxHeap[1];
+
+				maxHeap[1] = maxHeap[realSize];
+				realSize--;
+				int index = 1;
+
+				while(index<=realSize/2){
+					int left = index*2;
+					int right = (index*2) + 1;
+
+					if(maxHeap[index]<maxHeap[left] || maxHeap[index]<maxHeap[right]){
+						if(maxHeap[left]>maxHeap[right]){
+							swap(maxHeap[left], maxHeap[index]);
+							index = left;
+						}
+						else{
+							swap(maxHeap[right], maxHeap[index]);
+							index = right;
+						}
+					}
+					else break;
+				}
+				return removed;
+			}
+		}
+
+		int size(){
+			return realSize;
+		}
+
+		void print(){
+			if(realSize==0){
+				cout<<"NO ELEMENT";
+				return;
+			}
+			for(int i=1; i<=realSize; i++) cout<<maxHeap[i]<<" ";
+			cout<<endl;
+			return;
+		}
 };
 
-// Function to insert data in the heap
-void HeapInsert(Heap heap, int value)
-{
-    if (heap.last_index == heap.array_size - 1) // Checking if the array has enough space to insert the data
-    {
-        // Increase array size
-    }
-    heap.last_index = heap.last_index + 1; // Increasing the last_index of the heap to map the next empty place
-    heap.array[heap.last_index] = value;   // Inserting the data at the back of the array
+int main(){
+	MaxHeap maxHeap;
+	maxHeap.resizeIt(3);
 
-    //#Swapping the inserted node up to the heap till it satisfies the max heap property
+	maxHeap.add(1);
+    maxHeap.add(2);
+    maxHeap.add(3);
 
-    int current = heap.last_index;   // Variables to iterate through the loop
-    int parent = floor(current / 2); // Storing the parent of the current node in a local variable
+    maxHeap.print();
 
-    while (parent >= 1 && heap.array[parent] < heap.array[current]) // Loop to iterate traverse to the node to parent to maintain the max heap property
-    {
+    cout<<maxHeap.peek()<<endl;
 
-        // Swap Function
-        int temp = heap.array[parent];
-        heap.array[parent] = heap.array[current];
-        heap.array[current] = temp;
+    cout<<maxHeap.pop()<<endl;
 
-        current = parent;            // Changing the iterative varibles
-        parent = floor(current / 2); // Changing the parent accoring to the current node
-    }
-}
+    maxHeap.print();
+    maxHeap.add(4);
+    maxHeap.add(5);
+    cout<<maxHeap.pop()<<endl;
+    maxHeap.add(5);
 
-// Function to remove the highest priority element from the max heap
-int HeapRemoveMax(Heap heap)
-{
-    if (heap.last_index == 0) // Checking if the heap is empty or not
-    {
-        return NULL;
-    }
-
-    //#Swap out the root for the last element and shrink the heap
-    // Swap Function
-    int result = heap.array[1];
-    heap.array[1] = heap.array[heap.last_index];
-    heap.array[heap.last_index] = NULL;
-
-    heap.last_index = heap.last_index - 1; // Changing the last elemt of the heap to mark the new end of the heap
-
-    //#Bubble the new root down
-    int i = 1; // Iterative variable
-
-    while (i <= heap.last_index) // Loop to iterate down the heap
-    {
-        int swap = i;
-
-        if (2 * i <= heap.last_index && heap.array[swap] < heap.array[2 * i]) // Checking if the left child is big or not
-        {
-            swap = 2 * i;
-        }
-
-        if ((2 * i + 1) <= heap.last_index && heap.array[swap] < heap.array[2 * i + 1]) // Checking if the right child is big or not
-        {
-            swap = 2 * i + 1;
-        }
-
-        // Check if we have to swap the new root node or not
-        if (i != swap)
-        {
-            // Swap Function
-            int temp = heap.array[i];
-            heap.array[i] = heap.array[swap];
-            heap.array[swap] = temp;
-            i = swap;
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    return result; // Returning the highest prioro=ity element from the max heap
-}
-
-// Function to change the priority of the particular node
-void UpdateValue(Heap heap, int index, int value)
-{
-    int old_value = heap.array[index]; // Storing the new priority
-    heap.array[index] = value;         // Changing the new priority
-
-    if (old_value < value)
-    {
-        // Bubble up the node with new value as in the HeapInsert Function
-    }
-    else
-    {
-        // Bubble sing the node with new value as in the HeapRemoveMax Function
-    }
+    maxHeap.print();
+    return 0;
 }
