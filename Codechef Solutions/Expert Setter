@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+      while(t--){
+          float X,Y;
+          cin>>X>>Y;
+          int N =((Y/X)*100);
+          if(N>=50){
+              cout<<"YES"<<endl;
+          }
+          else if(N<50){
+              cout<<"NO"<<endl;
+          }
+      }
+	return 0;
+}
