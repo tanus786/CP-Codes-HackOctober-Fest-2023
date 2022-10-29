@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+
+double myPow(double x, int n) {
+    long long val=n;
+    double ans=1;
+    if(n<0) val=abs(n);
+    while(val>0){
+        if(val%2){
+            ans*=x;
+            val--;
+        }
+        else{
+            x*=x;
+            val/=2;
+        }
+    }
+    if(n<0) ans=1/ans;
+    return ans;
+}
+    
+int main(){
+  int n, double x;
+  cin>>n>>x;
+  cout<<myPow(n,x)<<endl;
+  return 0;
+}
