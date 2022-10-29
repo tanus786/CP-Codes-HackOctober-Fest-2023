@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+      while(t--){
+          int X;
+          cin>>X;
+          int N=X/25;
+          if(X%25!=0)
+          cout<<N+1<<endl;
+          
+          else if(X%25==0)
+          cout<<N<<endl;
+      }
+	return 0;
+}
