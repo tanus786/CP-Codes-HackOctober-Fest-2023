@@ -1,39 +1,65 @@
+// Binary Tree in C++
+
+#include <stdlib.h>
+
 #include <iostream>
+
 using namespace std;
-class Node{
-  public:
+
+struct node {
   int data;
-  Node*left;
-  Node*right;
-  Node(int d){
-    data=d;
-    left=NULL;
-    right=NULL;
-  }
+  struct node *left;
+  struct node *right;
 };
-Node* buildtree(){
-  int d;
-  cin>>d;
-  Node*root;
-  if(d==-1){
-    return NULL;
-  }
-  root=new Node(d);
-  root->left=buildtree();
-  root->right=buildtree();
-  return root;
+
+// New node creation
+struct node *newNode(int data) {
+  struct node *node = (struct node *)malloc(sizeof(struct node));
+
+  node->data = data;
+
+  node->left = NULL;
+  node->right = NULL;
+  return (node);
 }
-void print(Node*root){
-  if(root==NULL){
-    return;
+
+// Traverse Preorder
+void traversePreOrder(struct node *temp) {
+  if (temp != NULL) {
+    cout << " " << temp->data;
+    traversePreOrder(temp->left);
+    traversePreOrder(temp->right);
   }
-  cout<<root->data<<" ";
-  print(root->left);
-  print(root->right);
 }
-int main()
-{
-    Node*root=buildtree();  
-    print(root);
-  return 0;
+
+// Traverse Inorder
+void traverseInOrder(struct node *temp) {
+  if (temp != NULL) {
+    traverseInOrder(temp->left);
+    cout << " " << temp->data;
+    traverseInOrder(temp->right);
+  }
+}
+
+// Traverse Postorder
+void traversePostOrder(struct node *temp) {
+  if (temp != NULL) {
+    traversePostOrder(temp->left);
+    traversePostOrder(temp->right);
+    cout << " " << temp->data;
+  }
+}
+
+int main() {
+  struct node *root = newNode(1);
+  root->left = newNode(2);
+  root->right = newNode(3);
+  root->left->left = newNode(4);
+
+  cout << "preorder traversal: ";
+  traversePreOrder(root);
+  cout << "\nInorder traversal: ";
+  traverseInOrder(root);
+  cout << "\nPostorder traversal: ";
+  traversePostOrder(root);
 }
