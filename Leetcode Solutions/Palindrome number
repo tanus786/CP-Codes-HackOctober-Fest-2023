@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+         int n=x;
+         int c=0;
+         long reverse=0;
+        
+        if(n< 0 || (n % 10 == 0 && n!= 0)){
+        return false;
+    }
+         
+    while(n!=0)
+    {
+        c= n%10;
+        reverse= reverse*10+c;
+        n=n/10;
+    }
+    if(x== reverse)
+    {
+        return true;
+    }
+    else if(x== 0)
+    {
+        return true;
+    }
+    else{
+            return false;
+        }
+    }
+
+};
