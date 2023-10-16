@@ -10,6 +10,7 @@ int binary(int A[],int low,int high,int item)
         if(A[mid] == item)
         {
             return mid;
+            
         }
         if(A[mid]>item)
             return binary(A,low,mid-1,item);
