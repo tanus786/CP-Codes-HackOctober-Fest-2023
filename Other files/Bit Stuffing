@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(){
+    int cnt=1;
+    string bit, sent="",recieved="";
+    cout<<"Flag is 01111110\n";
+    cout<<"Input the bit stream to be transmitted: ";
+    cin>>bit;
+
+    for(int i=0;i<bit.size();i++){
+        if(bit[i]=='1'){
+            if(cnt>=0){
+                cnt++;
+            }
+        }
+        else{
+            cnt=0;
+        }
+        sent+=bit[i];
+        if(cnt==5){
+            cnt=0;
+            sent+='0';
+        }
+    }
+    cout<<"Stuffed bit stream is: "<<sent<<endl;
+    cout<<"Frame is: 01111110"<<sent<<"0111111\n";
+    
+    cnt=-1;
+    for(int i=0;i<sent.size();i++){
+        if(sent[i]=='1'){
+            if(cnt>=0){
+                cnt++;
+            }
+        }
+        else{
+            cnt++;
+        }
+        recieved+=sent[i];
+        if(cnt==5){
+            cnt=0;
+            i++;
+        }
+    }
+    cout<<"\nThe destuffed bit stream is: "<<recieved<<"\n\n";
+    
+}
